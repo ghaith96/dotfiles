@@ -1,0 +1,24 @@
+0fd9cefa9b01cdb5cd89b394ed5b54b3c4f5eaf1		branch 'master' of https://github.com/LunarVim/Neovim-from-scratch
+6260c377370a7fa9ab5d9bade00380b77d3367d4	not-for-merge	branch '01-options' of https://github.com/LunarVim/Neovim-from-scratch
+e1ac27496fccd2e0accb79c6ac2097865feff14b	not-for-merge	branch '02-keymaps' of https://github.com/LunarVim/Neovim-from-scratch
+4e038120bf179d7220638ad3e17bf4974ed50fff	not-for-merge	branch '03-plugins' of https://github.com/LunarVim/Neovim-from-scratch
+68de5d4fab1cd11d74829947a2809c1899280dea	not-for-merge	branch '04-colorscheme' of https://github.com/LunarVim/Neovim-from-scratch
+16e9e3d0597ca50fa5f6764708a5e8fdada611fb	not-for-merge	branch '05-completion' of https://github.com/LunarVim/Neovim-from-scratch
+0dda8d6f80699338e61abfc7a349b3ba3549f4ba	not-for-merge	branch '06-LSP' of https://github.com/LunarVim/Neovim-from-scratch
+1fb89cb3c5b0c6a5cc1461e6c7ca15b92ec2b8f3	not-for-merge	branch '07-Telescope' of https://github.com/LunarVim/Neovim-from-scratch
+5559d801b96b06fd4bed70429324156adf2ac3dc	not-for-merge	branch '08-treesitter' of https://github.com/LunarVim/Neovim-from-scratch
+b9a2bc855bbd7a7d54c9e280ee875393e30cf1a6	not-for-merge	branch '09-autopairs' of https://github.com/LunarVim/Neovim-from-scratch
+54c2bb07828c8e11bfa8e26f5931060ac3402358	not-for-merge	branch '10-comments' of https://github.com/LunarVim/Neovim-from-scratch
+6fbc8c23123a6b44590a3fa6c656c2f5b98ae89e	not-for-merge	branch '11-gitsigns' of https://github.com/LunarVim/Neovim-from-scratch
+98fdc9081631be2865942ead0b3ebaa5809cba09	not-for-merge	branch '12-nvimtree' of https://github.com/LunarVim/Neovim-from-scratch
+122bedde844fcef84169889d7666af0592b58c46	not-for-merge	branch '13-bufferline.lua' of https://github.com/LunarVim/Neovim-from-scratch
+8309138032f1bcd6eeb9586994994696f4786204	not-for-merge	branch '14-null-ls' of https://github.com/LunarVim/Neovim-from-scratch
+453274513272d301906db175f8f2e7e22ef7d568	not-for-merge	branch '15-lualine.lua' of https://github.com/LunarVim/Neovim-from-scratch
+f92254108d154b3710bbd8d85ad2585b6a979107	not-for-merge	branch '16-toggleterm' of https://github.com/LunarVim/Neovim-from-scratch
+60c29a60a338d81bd93d7784595c3e91f0772053	not-for-merge	branch '17-project' of https://github.com/LunarVim/Neovim-from-scratch
+03427b87604b573f2fd4c2683de378e4806f86fc	not-for-merge	branch '18-impatient' of https://github.com/LunarVim/Neovim-from-scratch
+e07a1d37116bf2aafef18a7f2ef71e45e15ec5cc	not-for-merge	branch '19-indentline' of https://github.com/LunarVim/Neovim-from-scratch
+95e5604074b7443968f01738f7c556260a13b297	not-for-merge	branch '20-alpha' of https://github.com/LunarVim/Neovim-from-scratch
+f84566dc6e9533f5fa7d377fe26c1565aa7fe213	not-for-merge	branch '21-whichkey' of https://github.com/LunarVim/Neovim-from-scratch
+24e1856862e859b60cd5b38fa6befa00f75de89a	not-for-merge	branch '22-autocommands' of https://github.com/LunarVim/Neovim-from-scratch
+796e44c0ae24c0123df8cadafac89e7730030b0a	not-for-merge	branch 'revert-237-fix-gitsigns' of https://github.com/LunarVim/Neovim-from-scratch
