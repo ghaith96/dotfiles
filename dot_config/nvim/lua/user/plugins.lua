@@ -92,6 +92,8 @@ return packer.startup(function(use)
 	})
 
 	-- Git
+	use({ "TimUntersberger/neogit", commit = "c1a2a1aa5b4fd774dc26c53f7f256f1320c0ff15" })
+	use({ "sindrets/diffview.nvim", commit = "d2d9b18bd50fa1363bd8bdf65c9678fb1af125b3" })
 	use({ "lewis6991/gitsigns.nvim", commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2" })
 
 	-- ds - delete surrounding

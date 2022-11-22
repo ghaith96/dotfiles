@@ -107,7 +107,7 @@ local mappings = {
 
 	g = {
 		name = "Git",
-		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+		-- g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
 		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
 		l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
@@ -121,11 +121,11 @@ local mappings = {
 		},
 		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-		d = {
-			"<cmd>Gitsigns diffthis HEAD<cr>",
-			"Diff",
-		},
+		-- c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+		-- d = {
+		-- 	"<cmd>Gitsigns diffthis HEAD<cr>",
+		-- 	"Diff",
+		-- },
 	},
 
 	l = {

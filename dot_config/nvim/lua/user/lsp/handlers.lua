@@ -6,6 +6,7 @@ if not status_cmp_ok then
 end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.setup = function()
@@ -23,8 +24,8 @@ M.setup = function()
 
 	local config = {
 		virtual_text = {
-      prefix = "●",
-    },
+			prefix = "●",
+		},
 		signs = {
 			active = signs,
 		},
@@ -43,14 +44,12 @@ M.setup = function()
 
 	vim.diagnostic.config(config)
 
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-      vim.lsp.diagnostic.on_publish_diagnostics, {
-      underline = true,
-      update_in_insert = false,
-      virtual_text = { severity= vim.diagnostic.severity.ERROR, spacing = 4, prefix = "●" },
-      severity_sort = true,
-    }
-  )
+	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+		underline = true,
+		update_in_insert = false,
+		virtual_text = { severity = vim.diagnostic.severity.ERROR, spacing = 4, prefix = "●" },
+		severity_sort = true,
+	})
 
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 		border = "rounded",
@@ -65,14 +64,14 @@ local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
 	local keymap = vim.api.nvim_buf_set_keymap
 
-  -- keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  -- keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  -- keymap(bufnr, 'n', '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
-  -- keymap(bufnr, 'n', 'K', '<Cmd>Lspsaga hover_doc<CR>', opts)
-  -- keymap(bufnr, 'n', 'gd', '<Cmd>Lspsaga lsp_finder<CR>', opts)
-  -- keymap(bufnr, 'i', '<C-k>', '<Cmd>Lspsaga signature_help<CR>', opts)
-  -- keymap(bufnr, 'n', 'gp', '<Cmd>Lspsaga preview_definition<CR>', opts)
-  -- keymap(bufnr, 'n', 'gr', '<Cmd>Lspsaga rename<CR>', opts)
+	-- keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+	-- keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+	-- keymap(bufnr, 'n', '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
+	-- keymap(bufnr, 'n', 'K', '<Cmd>Lspsaga hover_doc<CR>', opts)
+	-- keymap(bufnr, 'n', 'gd', '<Cmd>Lspsaga lsp_finder<CR>', opts)
+	-- keymap(bufnr, 'i', '<C-k>', '<Cmd>Lspsaga signature_help<CR>', opts)
+	-- keymap(bufnr, 'n', 'gp', '<Cmd>Lspsaga preview_definition<CR>', opts)
+	-- keymap(bufnr, 'n', 'gr', '<Cmd>Lspsaga rename<CR>', opts)
 
 	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -92,7 +91,7 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "tsserver" then
+	if client.name == "tsserver" then
 		client.server_capabilities.documentFormattingProvider = false
 	end
 

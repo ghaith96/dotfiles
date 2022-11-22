@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/Users/ghaithjardaneh/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
     url = "https://github.com/lunarvim/darkplus.nvim"
   },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "/Users/ghaithjardaneh/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/ghaithjardaneh/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -163,6 +168,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ghaithjardaneh/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  neogit = {
+    loaded = true,
+    path = "/Users/ghaithjardaneh/.local/share/nvim/site/pack/packer/start/neogit",
+    url = "https://github.com/TimUntersberger/neogit"
   },
   ["null-ls.nvim"] = {
     loaded = true,
