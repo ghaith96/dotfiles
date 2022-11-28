@@ -239,6 +239,11 @@ _G.packer_plugins = {
     path = "/Users/ghaithjardaneh/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
   },
+  srcery = {
+    loaded = true,
+    path = "/Users/ghaithjardaneh/.local/share/nvim/site/pack/packer/start/srcery",
+    url = "https://github.com/srcery-colors/srcery-vim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/ghaithjardaneh/.local/share/nvim/site/pack/packer/start/telescope.nvim",

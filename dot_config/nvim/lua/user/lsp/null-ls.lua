@@ -13,8 +13,10 @@ local code_actions = null_ls.builtins.code_actions
 null_ls.setup({
 	debug = false,
 	sources = {
-		-- web
-		formatting.prettier_d_slim.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+		-- node
+		-- formatting.prettier_d_slim.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+		formatting.eslint_d,
+		diagnostics.eslint_d,
 		code_actions.eslint_d,
 
 		-- python
@@ -24,5 +26,8 @@ null_ls.setup({
 
 		-- lua
 		formatting.stylua,
+
+		-- git
+		code_actions.gitsigns,
 	},
 })

@@ -61,6 +61,7 @@ return packer.startup(function(use)
 	-- Colorschemes
 	use({ "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" })
 	use({ "lunarvim/darkplus.nvim", commit = "13ef9daad28d3cf6c5e793acfc16ddbf456e1c83" })
+	use({ "srcery-colors/srcery-vim", commit = "cdb0bc36fda80eb58d38ecddfb1c7b2fab3a4d53", as = "srcery" })
 
 	-- Cmp
 	use({ "hrsh7th/nvim-cmp", commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc" }) -- The completion plugin
@@ -78,7 +79,7 @@ return packer.startup(function(use)
 	use({ "neovim/nvim-lspconfig", commit = "f11fdff7e8b5b415e5ef1837bdcdd37ea6764dda" }) -- enable LSP
 	use({ "williamboman/mason.nvim", commit = "6dbeebe20aa9d1261dbee86779f7fc3c6f2ef8f1" }) -- simple to use language server installer
 	use({ "williamboman/mason-lspconfig.nvim", commit = "a1e2219ecea273d52b1ce1d527dd3a93cfe5b396" })
-	use({ "jose-elias-alvarez/null-ls.nvim", commit = "07d4ed4c6b561914aafd787453a685598bec510f" }) -- for formatters and linters
+	use({ "jose-elias-alvarez/null-ls.nvim", commit = "c51978f546a86a653f4a492b86313f4616412cec" }) -- for formatters and linters
 	use({ "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" })
 	use({ "glepnir/lspsaga.nvim", commit = "201dbbd13d6bafe1144475bbcae9efde224e07ec" })
 
