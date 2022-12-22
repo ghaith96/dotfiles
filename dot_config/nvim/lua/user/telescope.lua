@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
+local trouble_loaded, trouble = pcall(require, "trouble.providers.telescope")
+
 local actions = require("telescope.actions")
 
 telescope.setup({
@@ -27,8 +29,8 @@ telescope.setup({
 
 				["<CR>"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,
+				["<C-t>"] = trouble_loaded and trouble.open_with_trouble,
 				["<C-v>"] = actions.select_vertical,
-				["<C-t>"] = actions.select_tab,
 
 				["<C-u>"] = actions.preview_scrolling_up,
 				["<C-d>"] = actions.preview_scrolling_down,
@@ -41,7 +43,7 @@ telescope.setup({
 				["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 				["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 				["<C-l>"] = actions.complete_tag,
-				["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+				["<C-_>"] = actions.which_key, -- keys from pressing <C-/>,
 			},
 
 			n = {
@@ -49,7 +51,7 @@ telescope.setup({
 				["<CR>"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
-				["<C-t>"] = actions.select_tab,
+				["<C-t>"] = trouble_loaded and trouble.open_with_trouble,
 
 				["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
 				["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
@@ -78,9 +80,13 @@ telescope.setup({
 		},
 	},
 	pickers = {
-    find_files = {
-      find_command = {"fd", "--hidden", "--glob", ""}
-    }
+		find_files = {
+			hidden = true,
+			file_ignore_patterns = { ".git", "node_modules", ".DS_Store" },
+		},
+		live_grep = {
+			only_sort_text = true,
+		},
 		-- Default configuration for builtin pickers goes here:
 		-- picker_name = {
 		--   picker_config_key = value,
@@ -90,11 +96,12 @@ telescope.setup({
 		-- builtin picker
 	},
 	extensions = {
-		-- Your extension configuration goes here:
-		-- extension_name = {
-		--   extension_config_key = value,
-		-- }
-		-- please take a look at the readme of the extension you want to configure
+		fzf = {
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "smart_case",
+		},
 	},
 })
 
@@ -111,18 +118,23 @@ function vim.getVisualSelection()
 	end
 end
 
+local tb_status_ok, tb = pcall(require, "telescope.builtin")
+if not tb_status_ok then
+	return
+end
+
+local tt_status_ok, tt = pcall(require, "telescope.themes")
+if not tt_status_ok then
+	return
+end
+
 local keymap = vim.keymap.set
-local tb = require("telescope.builtin")
 local opts = { noremap = true, silent = true }
 
--- keymap('n', '<space>f', ':Telescope current_buffer_fuzzy_find<cr>', opts)
-keymap("v", "<leader>f", function()
-	local text = vim.getVisualSelection()
-	tb.current_buffer_fuzzy_find({ default_text = text })
-	--
-end, opts)
 -- keymap('n', '<space>F', ':Telescope live_grep<cr>', opts)
 keymap("v", "<leader>F", function()
 	local text = vim.getVisualSelection()
-	tb.live_grep({ default_text = text })
+	tb.live_grep(tt.get_ivy({ default_text = text }))
 end, opts)
+
+telescope.load_extension("fzf")

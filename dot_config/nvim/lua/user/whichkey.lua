@@ -86,7 +86,9 @@ local mappings = {
 	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
+	["W"] = { "<cmd>wa!<CR>", "Save All" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
+	["Q"] = { "<cmd>qa!<CR>", "Quit All" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["f"] = {
@@ -94,7 +96,6 @@ local mappings = {
 		"Find files",
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
 	p = {
 		name = "Packer",
@@ -108,10 +109,12 @@ local mappings = {
 	g = {
 		name = "Git",
 		-- g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+		h = { "<cmd>DiffviewFileHistory %<cr>", "File History" },
+		j = { "<cmd>lua require 'gitsigns'.next_hunk({preview = true})<cr>", "Next Hunk" },
+		k = { "<cmd>lua require 'gitsigns'.prev_hunk({preview = true})<cr>", "Prev Hunk" },
 		l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+		p = { "<cmd>lua require 'gitsigns'.preview_hunk_inline()<cr>", "Preview Hunk (inline)" },
+		P = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
 		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
 		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
 		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
@@ -121,6 +124,7 @@ local mappings = {
 		},
 		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		q = { "<cmd>DiffviewClose<cr>", "Close Diff view" },
 		-- c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
 		-- d = {
 		-- 	"<cmd>Gitsigns diffthis HEAD<cr>",
@@ -130,7 +134,7 @@ local mappings = {
 
 	l = {
 		name = "LSP",
-		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+		-- a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 		d = {
 			"<cmd>Telescope diagnostics bufnr=0<cr>",
 			"Document Diagnostics",
@@ -143,20 +147,20 @@ local mappings = {
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		j = {
-			"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+			"<cmd>lua vim.diagnostic.goto_next()<CR>",
 			"Next Diagnostic",
 		},
 		k = {
-			"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+			"<cmd>lua vim.diagnostic.goto_prev()<cr>",
 			"Prev Diagnostic",
 		},
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+		q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-      "Workspace Symbols",
+			"Workspace Symbols",
 		},
 	},
 	s = {
@@ -172,14 +176,15 @@ local mappings = {
 	},
 
 	t = {
-		name = "Terminal",
-		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-		u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+		name = "Trouble",
+		t = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
+		w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics" },
+		d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics" },
+		l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
+		q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
+		r = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
+		j = { "<cmd>lua require('trouble').next({ jump = true, skip_groups = true})<cr>", "Jump next" },
+		k = { "<cmd>lua require('trouble').previous({ jump = true, skip_groups = true })<cr>", "Jump prev" },
 	},
 }
 

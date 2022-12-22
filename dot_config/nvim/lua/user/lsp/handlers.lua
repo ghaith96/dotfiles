@@ -67,15 +67,18 @@ local function lsp_keymaps(bufnr)
 
 	keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 
-  -- conflict with window jumping
+	-- conflict with window jumping
 	-- keymap(bufnr, "n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 
 	keymap(bufnr, "n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts)
-	keymap(bufnr, "n", "gf", "<Cmd>Lspsaga lsp_finder<CR>", opts)
 	keymap(bufnr, "i", "<C-k>", "<Cmd>Lspsaga signature_help<CR>", opts)
 	keymap(bufnr, "n", "gd", "<Cmd>Lspsaga peek_definition<CR>", opts)
 	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	keymap(bufnr, "n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
+	keymap(bufnr, "n", "gh", "<Cmd>Lspsaga lsp_finder<CR>", opts)
+
+	keymap(bufnr, "n", "<leader>la", "<cmd>Lspsaga code_action<CR>", opts)
+	keymap(bufnr, "v", "<leader>la", "<cmd>Lspsaga code_action<CR>", opts)
 
 	-- Diagnsotic jump can use `<c-o>` to jump back
 	keymap(bufnr, "n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
@@ -103,7 +106,7 @@ local function lsp_keymaps(bufnr)
 	-- keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
 	-- keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 	-- keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
-	-- keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
+	-- keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=1})<cr>", opts)
 	-- keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 	-- keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	-- keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
@@ -119,11 +122,11 @@ M.on_attach = function(client, bufnr)
 	end
 
 	lsp_keymaps(bufnr)
-	-- local status_ok, illuminate = pcall(require, "illuminate")
-	-- if not status_ok then
-	-- 	return
-	-- end
-	-- illuminate.on_attach(client)
+	local status_ok, illuminate = pcall(require, "illuminate")
+	if not status_ok then
+		return
+	end
+	illuminate.on_attach(client)
 end
 
 return M
