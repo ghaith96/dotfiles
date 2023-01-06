@@ -123,6 +123,9 @@ return packer.startup(function(use)
 	-- better f/F/t/T
 	use({ "justinmk/vim-sneak", commit = "93395f5b56eb203e4c8346766f258ac94ea81702" })
 
+	-- startup time debugging
+	-- use({ "dstein64/vim-startuptime" }) -- :StartupTime
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

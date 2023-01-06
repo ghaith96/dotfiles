@@ -8,6 +8,7 @@ local servers = {
 	"jsonls",
 	"yamlls",
 	"svelte",
+	"rust_analyzer",
 }
 
 local settings = {
@@ -36,10 +37,13 @@ end
 
 local opts = {}
 
+local on_attach = require("user.lsp.handlers").on_attach
+local capabilities = require("user.lsp.handlers").capabilities
+
 for _, server in pairs(servers) do
 	opts = {
-		on_attach = require("user.lsp.handlers").on_attach,
-		capabilities = require("user.lsp.handlers").capabilities,
+		on_attach = on_attach,
+		capabilities = capabilities,
 	}
 
 	server = vim.split(server, "@")[1]

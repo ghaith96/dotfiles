@@ -172,6 +172,13 @@ local schemas = {
 		fileMatch = { "turbo.json" },
 		url = "https://turborepo.org/schema.json",
 	},
+
+	{
+		name = "Starship",
+		description = "Starship, fast rust prompt",
+		fileMatch = { "starship.toml" },
+		url = "https://starship.rs/config-schema.json",
+	},
 }
 
 local function extend(tab1, tab2)

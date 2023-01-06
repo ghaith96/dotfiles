@@ -20,14 +20,14 @@ null_ls.setup({
 		code_actions.eslint_d,
 
 		-- python
-		formatting.black.with({ extra_args = { "--fast" } }),
-		null_ls.builtins.diagnostics.ruff,
-		diagnostics.mypy,
+		-- formatting.black.with({ extra_args = { "--fast" } }),
+		-- null_ls.builtins.diagnostics.ruff,
+		-- diagnostics.mypy,
 
 		-- lua
 		formatting.stylua,
 
-		-- git
-		code_actions.gitsigns,
+		-- rust
+		-- formatting.rustfmt,
 	},
 })

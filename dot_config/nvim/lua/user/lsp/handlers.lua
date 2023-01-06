@@ -6,7 +6,7 @@ if not status_cmp_ok then
 end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.setup = function()
@@ -112,6 +112,8 @@ local function lsp_keymaps(bufnr)
 	-- keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
+local illuminate_status_ok, illuminate = pcall(require, "illuminate")
+
 M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" then
 		client.server_capabilities.documentFormattingProvider = false
@@ -122,11 +124,10 @@ M.on_attach = function(client, bufnr)
 	end
 
 	lsp_keymaps(bufnr)
-	local status_ok, illuminate = pcall(require, "illuminate")
-	if not status_ok then
-		return
+
+	if illuminate_status_ok then
+		illuminate.on_attach(client)
 	end
-	illuminate.on_attach(client)
 end
 
 return M
